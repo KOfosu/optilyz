@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(compression());
 app.use(async (req, res, next) => {
   try {
-    if (req.url !== '/api/users/login' && req.url !== '/api/users/create') {
+    if (req.url !== '/api/users' && req.url !== '/api/users/login') {
       // retrieving the access token from the request header
       const bearerHeader = req.headers.authorization;
       if (typeof bearerHeader !== 'undefined') {
@@ -37,9 +37,8 @@ app.use(async (req, res, next) => {
           // verify the token
           const authenticatedData = await util.verifyToken(bearerToken);
 
-          // checking if the token is valid by checking the email
+          // checking if email from token is valid
           if (authenticatedData.email) {
-            // checking if email from token is valid
             const foundUser = await User.findOne({ email: authenticatedData.email });
 
             if (foundUser) {

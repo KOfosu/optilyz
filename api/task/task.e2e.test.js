@@ -14,7 +14,7 @@ describe('Task Integration Tests', () => {
     };
 
     // create a user and use their token process all other requests
-    await request(app).post('/api/users/create').send(requestBody);
+    await request(app).post('/api/users').send(requestBody);
 
     // log in and get a token
     const response = await request(app).post('/api/users/login').send(requestBody);
@@ -39,7 +39,7 @@ describe('Task Integration Tests', () => {
     });
   });
 
-  describe('POST /api/tasks/', () => {
+  describe('POST /api/tasks', () => {
     it('validates empty title', async () => {
       const requestBody = {
         title: '',
@@ -50,7 +50,7 @@ describe('Task Integration Tests', () => {
       };
 
       const response = await request(app)
-        .post('/api/tasks/')
+        .post('/api/tasks')
         .set('Authorization', `Bearer ${token}`)
         .send(requestBody);
 
@@ -67,7 +67,7 @@ describe('Task Integration Tests', () => {
         isCompleted: false
       };
 
-      const response = await request(app).post('/api/tasks/')
+      const response = await request(app).post('/api/tasks')
         .set('Authorization', `Bearer ${token}`)
         .send(requestBody);
 
@@ -148,12 +148,12 @@ describe('Task Integration Tests', () => {
     });
   });
 
-  describe('GET /api/tasks/', () => {
+  describe('GET /api/tasks', () => {
     it('retrieves all tasks successfully', async () => {
       const requestBody = {};
 
       const response = await request(app)
-        .get('/api/tasks/')
+        .get('/api/tasks')
         .set('Authorization', `Bearer ${token}`)
         .query(requestBody);
       taskId = response.body.data.tasks[0]._id;
@@ -166,7 +166,7 @@ describe('Task Integration Tests', () => {
     });
   });
 
-  describe('GET /api/tasks/<taskId>', () => {
+  describe('GET /api/tasks<taskId>', () => {
     it('retrieves a task successfully', async () => {
       const requestBody = {};
 
@@ -183,7 +183,7 @@ describe('Task Integration Tests', () => {
     });
   });
 
-  describe('PUT /api/tasks/<taskId>', () => {
+  describe('PUT /api/tasks<taskId>', () => {
     it('updates a task successfully', async () => {
       const requestBody = {
         title: 'wewewewe',
@@ -203,7 +203,7 @@ describe('Task Integration Tests', () => {
     });
   });
 
-  describe('DELETE /api/tasks/<taskId>', () => {
+  describe('DELETE /api/tasks<taskId>', () => {
     it('deletes a task successfully', async () => {
       const requestBody = {};
 

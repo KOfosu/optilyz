@@ -2,7 +2,7 @@ const router = require('express').Router();
 const taskController = require('./taskController');
 
 module.exports = (() => {
-  router.route('/')
+  router.route('')
     .post(taskController.addTask)
     .get(taskController.findAllTasks);
 

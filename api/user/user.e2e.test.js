@@ -12,7 +12,7 @@ describe('User Integration Tests', () => {
     await mongoose.disconnect();
   });
 
-  describe('POST /api/users/create', () => {
+  describe('POST /api/users', () => {
     it('validates empty email address', async () => {
       const requestBody = {
         email: '',
@@ -20,7 +20,7 @@ describe('User Integration Tests', () => {
         name: ''
       };
 
-      const response = await request(app).post('/api/users/create').send(requestBody);
+      const response = await request(app).post('/api/users').send(requestBody);
 
       expect(response.status).toEqual(400);
       expect(response.body.message).toEqual('Email address is required');
@@ -33,7 +33,7 @@ describe('User Integration Tests', () => {
         name: ''
       };
 
-      const response = await request(app).post('/api/users/create').send(requestBody);
+      const response = await request(app).post('/api/users').send(requestBody);
 
       expect(response.status).toEqual(400);
       expect(response.body.message).toEqual('Password is required');
@@ -46,7 +46,7 @@ describe('User Integration Tests', () => {
         name: ''
       };
 
-      const response = await request(app).post('/api/users/create').send(requestBody);
+      const response = await request(app).post('/api/users').send(requestBody);
 
       expect(response.status).toEqual(400);
       expect(response.body.message).toEqual('Name is required');
@@ -59,7 +59,7 @@ describe('User Integration Tests', () => {
         password: 'qwerty'
       };
 
-      const response = await request(app).post('/api/users/create').send(requestBody);
+      const response = await request(app).post('/api/users').send(requestBody);
 
       expect(response.status).toEqual(201);
       expect(response.body.message).toEqual('User saved successfully');
@@ -72,7 +72,7 @@ describe('User Integration Tests', () => {
         password: 'qwerty'
       };
 
-      const response = await request(app).post('/api/users/create').send(requestBody);
+      const response = await request(app).post('/api/users').send(requestBody);
 
       expect(response.status).toEqual(400);
       expect(response.body.message).toEqual('Email already exists');
