@@ -1,0 +1,35 @@
+{
+  "name": "optilyz",
+  "version": "1.0.0",
+  "description": "Coding challenge",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "NODE_ENV=test jest --force-exit --testTimeout=10000 --runInBand",
+    "prepare": "husky install"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "compression": "^1.7.4",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.7",
+    "validator": "^13.6.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "husky": "^7.0.2",
+    "jest": "^27.0.6",
+    "jest-extended": "^0.11.5",
+    "supertest": "^6.1.6"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ]
+  }
+}
