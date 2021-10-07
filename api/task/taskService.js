@@ -18,7 +18,7 @@ module.exports = (() => {
           description: requestBody.description,
           startTime: requestBody.startTime,
           reminderTime: requestBody.reminderTime,
-          isCompleted: requestBody.isCompleted
+          isCompleted: requestBody.isCompleted ? requestBody.isCompleted : false
         });
 
         // success

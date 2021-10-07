@@ -20,7 +20,7 @@ module.exports = (() => {
       }
 
       // validate start time for task
-      if (requestBody.startTime) {
+      if (requestBody.startTime !== '') {
         if (validator.isISO8601(requestBody.startTime) === false) {
           return {
             status: 400,
@@ -30,7 +30,7 @@ module.exports = (() => {
       }
 
       // validate the reminder/notification time for the task
-      if (requestBody.reminderTime) {
+      if (requestBody.reminderTime !== '') {
         if (validator.isISO8601(requestBody.reminderTime) === false) {
           return {
             status: 400,
@@ -40,7 +40,7 @@ module.exports = (() => {
       }
 
       // validating the "is completed variable"
-      if (requestBody.isCompleted) {
+      if (requestBody.isCompleted !== '') {
         if (typeof (requestBody.isCompleted) !== 'boolean') {
           return {
             status: 400,
