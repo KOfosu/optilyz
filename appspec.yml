@@ -2,9 +2,9 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/apps/valentines-payment/
+    destination: /var/www/apps/optilyz
 hooks:
   AfterInstall:
     - location: scripts/start_application.sh
       timeout: 300
-      runas: ubuntu
+      runas: root

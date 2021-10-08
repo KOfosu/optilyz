@@ -1,2 +1,3 @@
 #!/bin/bash
-cp ~/apps/valentines-payment/.env ~
+cp /home/ubuntu/apps/valentines-payment/.env /home/ubuntu/
+sudo rm -rf /home/ubuntu/apps/valentines-payment/
