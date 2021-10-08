@@ -5,5 +5,6 @@ export NVM_DIR="$HOME/.nvm"
 #setting hjkjkjdks
 cd /var/www/apps/optilyz
 npm i
+pm2 start npm --name optilyz -- start
 pm2 delete optilyz
 pm2 start npm --name optilyz -- start
