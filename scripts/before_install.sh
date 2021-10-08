@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# updating packages on the server
+# update packages on the server
 apt update -y
 
 # Install node.js
